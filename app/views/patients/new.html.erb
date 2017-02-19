@@ -5,13 +5,38 @@ Click here to go back to the patient directory
 
 <h2>Add new patient</h2>
 
-<form>
-  First Name:
-  <input type="text" name="first_name"/>
-  Last Name:
-  <input type="text" name="last_name"/>
-  <br/>Details:
-  <textarea name="details"></textarea>
+<%= form_for(@patient) do |f| %>
+
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :dob %><br>
+    <%= f.date_select :dob, :start_year => Date.today.year-100, :end_year => Date.today.year %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :gender%><br>
+    <%= f.select :gender, ['Female', 'Male', 'Unknown'] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :details %><br>
+    <%= f.text_area :details %>
+  </div>
+
+  
+  <div class="actions">
   <br/>
-  <input type="submit">
-</form>
+    <%= f.submit %>
+  <br/><br/>
+  </div>
+<% end %>
