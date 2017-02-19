@@ -7,6 +7,12 @@ Click here to add new patient info
 
 
 <h2>Patients List</h2>
+Search: <input type="text" ng-model="search_name">
 
-
-<%= @patients.to_json %>
+<div ng-init="patients_list = <%= @patients.to_json %>">
+  <ol>  
+    <li ng-repeat="p in patients_list | filter: search_name">
+    {{p.first_name}} {{p.last_name}}
+    </li>
+  </ol>
+</div>
