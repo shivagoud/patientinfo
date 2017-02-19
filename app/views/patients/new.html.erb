@@ -1,0 +1,17 @@
+<div>
+Click here to go back to the patient directory
+<%= link_to 'Patients List', patients_path %>
+</div>
+
+<h2>Add new patient</h2>
+
+<form>
+  First Name:
+  <input type="text" name="first_name"/>
+  Last Name:
+  <input type="text" name="last_name"/>
+  <br/>Details:
+  <textarea name="details"></textarea>
+  <br/>
+  <input type="submit">
+</form>
